@@ -1,0 +1,41 @@
+<br/>
+<br/>
+<br/>
+<table>
+    <tr>
+        <td>Fund Type</td>
+        <td>
+            <select [(ngModel)]="selectedFundType" onselect="filterFundHouses()">
+    <option *ngFor="let fundType of fundType.data" 
+    [value]="fundType" 
+    [attr.selected]="selectedFundType==fundType ? true : null">
+  {{fundType}}
+</option>
+</select>
+        </td>
+    </tr>
+    <tr>
+        <td>Fund House</td>
+        <td>
+            <select [(ngModel)]="selectedFund">
+    <option *ngFor="let fund of fundType.data" 
+    [value]="fund" 
+    [attr.selected]="selectedFund==fund ? true : null">
+  {{fund}}
+</option>
+</select>
+        </td>
+    </tr>
+    <tr>
+        <td>Funds</td>
+        <td>
+            <select [(ngModel)]="selectedFund">
+    <option *ngFor="let fund of fundType.data" 
+    [value]="fund" 
+    [attr.selected]="selectedFund==fund ? true : null">
+  {{fund}}
+</option>
+</select>
+        </td>
+    </tr>
+</table>

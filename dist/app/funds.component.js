@@ -9,20 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = "Tour of Heroes";
+var funds_service_1 = require('./funds.service');
+var fundtype_1 = require('./fundtype');
+var FundsComponent = (function () {
+    function FundsComponent(fundservice) {
+        this.fundservice = fundservice;
+        this.fundType = new fundtype_1.FundType();
     }
-    AppComponent = __decorate([
+    FundsComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.fundservice.getFundTypes().subscribe(function (x) { return _this.fundType = x; }, function (y) { return console.log(y); });
+    };
+    FundsComponent.prototype.getFundHouses = function () {
+    };
+    FundsComponent = __decorate([
         core_1.Component({
             moduleId: module.id.replace("/dist/", "/"),
-            selector: 'my-app',
-            template: "\n    <h1>{{title}}</h1>   \n    <nav>\n    <a routerLink=\"/dashboard\" routerLinkActive=\"active\">Dashboard</a>\n    <a routerLink=\"/heroes\" routerLinkActive=\"active\">Heroes</a>\n    <a routerLink=\"/funds\" routerLinkActive=\"active\">Funds</a>\n    </nav>\n    <router-outlet></router-outlet>\n  ",
-            styleUrls: ['app.component.css']
+            selector: 'funds',
+            templateUrl: 'funds.component.html',
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+        __metadata('design:paramtypes', [funds_service_1.FundsService])
+    ], FundsComponent);
+    return FundsComponent;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.FundsComponent = FundsComponent;
+//# sourceMappingURL=funds.component.js.map

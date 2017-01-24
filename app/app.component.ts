@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 
 @Component({
-  moduleId:module.id.replace("/dist/","/"),
+  moduleId: module.id.replace("/dist/", "/"),
   selector: 'my-app',
   template: `
     <h1>{{title}}</h1>   
     <nav>
     <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
     <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
+    <a routerLink="/funds" routerLinkActive="active">Funds</a>
     </nav>
     <router-outlet></router-outlet>
   `,
